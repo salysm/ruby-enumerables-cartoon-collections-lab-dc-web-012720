@@ -1,29 +1,38 @@
-def roll_call_dwarves(array)
-  dwarves = ["Dopey", "Bashful", "Grumpy", "Sleepy", "Happy", "Doc", "Sneezy"]
- index = 0
-  array.each_with_index {|name, index| puts "#{index + 1}. #{name} "}
+
+dwarves = ["Doc", "Dopey", "Bashful", "Grumpy", "Sneezy", "Sleepy", "Happy"]
+
+
+def roll_call_dwarves(dwarves)
+ dwarves.each_with_index do |dwarf, index| 
+  puts "#{index + 1}. #{dwarf}"
+ end
 end
 
-
-def summon_captain_planet(array)
-    planeteer_calls = []
-  array.collect do |calls|
-    planeteer_calls << "#{calls.capitalize}!"
+planeteer_calls = ["earth", "wind", "fire", "water", "heart"]
+def summon_captain_planet(planeteer_calls)
+  planeteer_calls.map {|call| call.capitalize! + '!'}
   end
-  planeteer_calls
-end
-
-def long_planeteer_calls(array)
-   array.any? do |word|
-    word.length > 4
-end
-end
 
 
-def find_the_cheese(array)
-  cheese_types = ["cheddar", "gouda", "camembert"]
-   array.find do |cheese|
-    cheese == "cheddar" || cheese == "gouda" || cheese == "camembert"
+def long_planeteer_calls(planeteer_calls)
+  planeteer_calls.any? {|call| call.length > 4}
+end
+
+# snacks = ["crackers", "gouda", "thyme"]
+# soup = ["tomato soup", "cheddar", "oyster crackers", "gouda"]
+
+# def find_the_cheese(array)
+#   cheese = %w[gouda cheddar camembert]
+#   array.find do |ingredient| 
+#     ingredient.include?(cheese)
+#   end
+# end
+potentially_cheesy_items = %w[umbrella spinach cheddar helicopter]
+
+def find_the_cheese(potentially_cheesy_items)
+  cheeses = %w[gouda cheddar camembert]
+
+  potentially_cheesy_items.find do |maybe_cheese|
+    cheeses.include?(maybe_cheese)
   end
-  
 end
